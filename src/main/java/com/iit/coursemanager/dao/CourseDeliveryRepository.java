@@ -21,6 +21,9 @@ public interface CourseDeliveryRepository extends JpaRepository<CourseDelivery,S
 	@Query("SELECT new com.iit.coursemanager.pojo.CourseDeliveryDetails(t2.course_code, t2.title,t2.description,t1.semesterOfDelivery, t1.yearOfDelivery ) " +
 	           "FROM CourseDelivery t1 JOIN Course t2 ON t1.courseID = t2.course_code WHERE t1.yearOfDelivery = ?1 AND t1.semesterOfDelivery = ?2 AND t1.courseID = ?3")
 	Optional<CourseDeliveryDetails>  getCourseDeliveryDetails( int yearOfDelivery, int semesterOfDelivery,String courseId);
+
+	@Query("SELECT c from CourseDelivery c  where c.courseID = ?1")
+	Optional<CourseDelivery> findByCourseId(String courseID);
 	
 	@Modifying
     @Transactional

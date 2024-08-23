@@ -16,7 +16,7 @@ public class CourseDeliveryService {
 	private CourseDeliveryRepository courseDeliveryRepository;
 
 	public Optional<CourseDelivery>  getCourseDelivery(String courseID) {
-		return courseDeliveryRepository.findById(courseID);
+		return courseDeliveryRepository.findByCourseId(courseID);
 	}
 	
 	public CourseDelivery addCourseDelivery(CourseDelivery courseDelivery) {
