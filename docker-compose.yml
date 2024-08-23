@@ -1,0 +1,16 @@
+version: '3'
+
+services:     
+  frontend:        
+    image: my-react-app:1.0
+    ports:
+      - "80:80"
+
+  backend:        
+    image: coursemanager:1.1
+    ports:
+      - "8080:8080"
+
+networks:
+  app-network:
+    driver: bridge
