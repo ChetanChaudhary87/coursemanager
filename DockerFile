@@ -1,0 +1,13 @@
+FROM openjdk:17-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy jar
+COPY build/libs/coursemanager-*.jar /app/coursemanager.jar
+
+# Expose port
+EXPOSE 8080
+
+# Run application
+CMD ["java", "-jar", "coursemanager.jar"]
